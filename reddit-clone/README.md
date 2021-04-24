@@ -9,7 +9,7 @@
 ## Install
 
 ```sh
-yarn install
+yarn install 
 ```
 
 ## Usage
