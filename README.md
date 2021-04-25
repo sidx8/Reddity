@@ -10,6 +10,19 @@
 
 > Reddit Built Useing Graphql
 
+## Install
+
+```sh
+yarn install 
+```
+
+## Usage
+
+```sh
+yarn run start
+```
+
+
 ### 🏠 [Homepage](http://localhost:3000)
 
 ## Author
