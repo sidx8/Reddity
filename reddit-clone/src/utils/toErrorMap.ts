@@ -1,4 +1,3 @@
-import { ErrorMessage } from "formik";
 import { FieldError } from "../generated/graphql";
 
 export const toErrorMap = (errors: FieldError[]) => {

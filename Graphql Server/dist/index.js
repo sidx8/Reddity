@@ -36,11 +36,6 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
         origin: "http://localhost:3000",
         credentials: true,
     }));
-    app.get("/aurdino", (req, res) => {
-        req.query;
-        res.sendStatus(200);
-        res.send("OK");
-    });
     app.use(express_session_1.default({
         name: "sidx8",
         store: new RedisStore({
@@ -64,12 +59,15 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
         }),
         context: ({ req, res }) => ({ em: orm.em, req, res }),
     });
-    apolloServer.applyMiddleware({ app });
+    apolloServer.applyMiddleware({
+        app,
+        cors: false,
+    });
     app.listen(4000, () => {
-        console.log("server started on localhost 4000");
+        console.log("server started on localhost:4000");
     });
 });
 main().catch((err) => {
-    console.log(err);
+    console.error(err);
 });
 //# sourceMappingURL=index.js.map

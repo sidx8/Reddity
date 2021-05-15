@@ -28,8 +28,8 @@ let PostResolver = class PostResolver {
     posts({ em }) {
         return em.find(Post_1.Post, {});
     }
-    post(_id, { em }) {
-        return em.findOne(Post_1.Post, { _id });
+    post(id, { em }) {
+        return em.findOne(Post_1.Post, { id });
     }
     createPost(title, { em }) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -38,9 +38,9 @@ let PostResolver = class PostResolver {
             return post;
         });
     }
-    updatePost(_id, title, { em }) {
+    updatePost(id, title, { em }) {
         return __awaiter(this, void 0, void 0, function* () {
-            const post = yield em.findOne(Post_1.Post, { _id });
+            const post = yield em.findOne(Post_1.Post, { id });
             if (!post) {
                 return null;
             }
@@ -52,9 +52,9 @@ let PostResolver = class PostResolver {
             return post;
         });
     }
-    deletePost(_id, { em }) {
+    deletePost(id, { em }) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield em.nativeDelete(Post_1.Post, { _id });
+            yield em.nativeDelete(Post_1.Post, { id });
             return true;
         });
     }

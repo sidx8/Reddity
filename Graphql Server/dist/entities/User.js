@@ -22,7 +22,7 @@ __decorate([
     type_graphql_1.Field(),
     core_1.PrimaryKey(),
     __metadata("design:type", Number)
-], User.prototype, "_id", void 0);
+], User.prototype, "id", void 0);
 __decorate([
     type_graphql_1.Field(() => String),
     core_1.Property({ type: "date" }),

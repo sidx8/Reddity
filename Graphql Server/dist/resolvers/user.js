@@ -89,7 +89,7 @@ let UserResolver = class UserResolver {
             if (!req.session.userId) {
                 return null;
             }
-            const user = yield em.findOne(User_1.User, { _id: req.session.userId });
+            const user = yield em.findOne(User_1.User, { id: req.session.userId });
             return user;
         });
     }
@@ -135,7 +135,7 @@ let UserResolver = class UserResolver {
                     };
                 }
             }
-            req.session.userId = user._id;
+            req.session.userId = user.id;
             return { user };
         });
     }
@@ -163,7 +163,7 @@ let UserResolver = class UserResolver {
                     ],
                 };
             }
-            req.session.userId = user._id;
+            req.session.userId = user.id;
             return {
                 user,
             };

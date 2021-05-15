@@ -44,7 +44,7 @@ export class UserResolver {
     if (!req.session.userId) {
       return null;
     }
-    const user = await em.findOne(User, { _id: req.session.userId });
+    const user = await em.findOne(User, { id: req.session.userId });
     return user;
   }
 
@@ -93,7 +93,7 @@ export class UserResolver {
         };
       }
     }
-    req.session.userId = user._id;
+    req.session.userId = user.id;
     return { user };
   }
 
@@ -124,7 +124,7 @@ export class UserResolver {
         ],
       };
     }
-    req.session.userId = user._id;
+    req.session.userId = user.id;
     return {
       user,
     };

@@ -28,11 +28,6 @@ const main = async () => {
       credentials: true,
     })
   );
-  app.get("/aurdino", (req, res) => {
-    req.query;
-    res.sendStatus(200);
-    res.send("OK");
-  });
   app.use(
     session({
       name: "sidx8",
@@ -51,7 +46,6 @@ const main = async () => {
       resave: false,
     })
   );
-
   const apolloServer = new ApolloServer({
     schema: await buildSchema({
       resolvers: [HelloResolver, PostResolver, UserResolver],
@@ -60,13 +54,16 @@ const main = async () => {
     context: ({ req, res }) => ({ em: orm.em, req, res }),
   });
 
-  apolloServer.applyMiddleware({ app });
+  apolloServer.applyMiddleware({
+    app,
+    cors: false,
+  });
 
   app.listen(4000, () => {
-    console.log("server started on localhost 4000");
+    console.log("server started on localhost:4000");
   });
 };
 
 main().catch((err) => {
-  console.log(err);
+  console.error(err);
 });
